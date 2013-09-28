@@ -77,4 +77,28 @@ Sales::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # Configure for Mandrill on Heroku
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:          'smtp.mandrillapp.com',
+    port:             587,
+    username:         ENV['MANDRILL_USERNAME'],
+    password:         END['MANDRILL_APIKEY'],
+    domain:           'heroku.com',
+    authentication:   :plain
+  }
+  config.action_mailer.default_url_options = {
+    host:             'secure-escarpment-1997.herokuapp.com/'
+  }
+
+  # Configure Paperclip to use AWS instead of the file system
+  config.paperclip_defaults = {
+    storage:              :s3,
+    s3_credentials: {
+      bucket:             ENV['AWS_BUCKET'],
+      access_key_id:      ENV['AWS_ACCESS_KEY_ID'],
+      secret_access_key:  ENV['AWS_SECRET_ACCESS_KEY']
+    }
+  }
 end

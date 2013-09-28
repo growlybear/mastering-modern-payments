@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-# Heroku need this
+# Heroku needs this
 ruby '1.9.3'
 
 
@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 1.2'
 # App-specifc gems
 gem 'devise', '~> 3.1.0'
 gem 'paperclip', '~> 3.5.1'
+gem 'aws-sdk', '~> 1.19.0'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
