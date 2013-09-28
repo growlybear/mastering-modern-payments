@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'devise', '~> 3.1.0'
 gem 'paperclip', '~> 3.5.1'
 gem 'aws-sdk', '~> 1.19.0'
+gem 'figaro', '~> 0.7.0'     # for ENV management
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
